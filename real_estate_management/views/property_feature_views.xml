@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_property_feature_form" model="ir.ui.view">
+        <field name="name">property.feature.form</field>
+        <field name="model">property.feature</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="category"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_property_feature_tree" model="ir.ui.view">
+        <field name="name">property.feature.tree</field>
+        <field name="model">property.feature</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="category"/>
+                <field name="property_count"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_property_feature" model="ir.actions.act_window">
+        <field name="name">Property Features</field>
+        <field name="res_model">property.feature</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

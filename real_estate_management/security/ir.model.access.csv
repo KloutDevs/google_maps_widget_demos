@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_real_estate_property_user,real.estate.property.user,model_real_estate_property,base.group_user,1,1,1,1
+access_property_type_user,property.type.user,model_property_type,base.group_user,1,1,1,1
+access_property_feature_user,property.feature.user,model_property_feature,base.group_user,1,1,1,1
+access_tour_location_user,tour.location.user,model_tour_location,base.group_user,1,1,1,1
+access_property_tour_user,property.tour.user,model_property_tour,base.group_user,1,1,1,1
+access_property_tour_line_user,property.tour.line.user,model_property_tour_line,base.group_user,1,1,1,1

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Menu -->
+    <menuitem id="menu_real_estate_root"
+              name="Real Estate"
+              sequence="10"/>
+
+    <!-- Properties -->
+    <menuitem id="menu_real_estate_properties"
+              name="Properties"
+              parent="menu_real_estate_root"
+              action="action_real_estate_property"
+              sequence="10"/>
+
+    <!-- Property Tours -->
+    <menuitem id="menu_property_tours"
+              name="Property Tours"
+              parent="menu_real_estate_root"
+              action="action_property_tour"
+              sequence="20"/>
+
+    <!-- Configuration -->
+    <menuitem id="menu_real_estate_configuration"
+              name="Configuration"
+              parent="menu_real_estate_root"
+              sequence="100"/>
+
+    <menuitem id="menu_property_types"
+              name="Property Types"
+              parent="menu_real_estate_configuration"
+              action="action_property_type"
+              sequence="10"/>
+
+    <menuitem id="menu_property_features"
+              name="Property Features"
+              parent="menu_real_estate_configuration"
+              action="action_property_feature"
+              sequence="20"/>
+</odoo>

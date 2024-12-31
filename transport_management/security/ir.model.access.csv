@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_transport_route,access_transport_route,model_transport_route,base.group_user,1,1,1,1
+access_transport_route_line,access_transport_route_line,model_transport_route_line,base.group_user,1,1,1,1
+access_transport_location,access_transport_location,model_transport_location,base.group_user,1,1,1,1
+access_transport_vehicle,access_transport_vehicle,model_transport_vehicle,base.group_user,1,1,1,1

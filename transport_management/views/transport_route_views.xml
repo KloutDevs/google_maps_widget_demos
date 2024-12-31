@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_transport_route_form" model="ir.ui.view">
+        <field name="name">transport.route.form</field>
+        <field name="model">transport.route</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,in_progress,done"/>
+                    <button name="action_confirm" 
+                            string="Confirm" 
+                            type="object" 
+                            class="oe_highlight" 
+                            invisible="state != 'draft'"/>
+                    <button name="action_start" 
+                            string="Start Route" 
+                            type="object" 
+                            class="oe_highlight" 
+                            invisible="state != 'confirmed'"/>
+                    <button name="action_done" 
+                            string="Mark as Done" 
+                            type="object" 
+                            class="oe_highlight" 
+                            invisible="state != 'in_progress'"/>
+                    <button name="action_cancel" 
+                            string="Cancel" 
+                            type="object" 
+                            invisible="state not in ('draft', 'confirmed')"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Route Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="vehicle_id"/>
+                            <field name="total_distance"/>
+                            <field name="total_time"/>
+                        </group>
+                        <group>
+                            <field name="total_charges"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Location Details">
+                            <field name="route_line_ids">
+                                <tree editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="source_location_id"/>
+                                    <field name="destination_location_id"/>
+                                    <field name="distance"/>
+                                    <field name="transport_charges"/>
+                                    <field name="time"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                        <div class="oe_google_map" style="margin-top: 10px;">
+                            <field name="route_line_ids"
+                                   widget="google_maps_route"
+                                   options="{'show_route': true, 'optimize_route': true, 'calculate_total_distance': true}"
+                                   total_distance_field="total_distance"
+                                   total_time_field="total_time"
+                                   locations_field="route_line_ids"
+                                   source_location_field="source_location_id"
+                                   destination_location_field="destination_location_id"
+                                   location_model="transport.location"/>
+                        </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_transport_route_tree" model="ir.ui.view">
+        <field name="name">transport.route.tree</field>
+        <field name="model">transport.route</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="vehicle_id"/>
+                <field name="total_distance"/>
+                <field name="total_time"/>
+                <field name="total_charges"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_transport_route" model="ir.actions.act_window">
+        <field name="name">Transport Routes</field>
+        <field name="res_model">transport.route</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
